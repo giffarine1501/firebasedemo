@@ -68,7 +68,7 @@ class _AddProductPageState extends State<AddProductPage> {
                 children: [
                   TextFormField(
                     controller: _name,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       label: Text(
                         'Product name',
@@ -81,7 +81,7 @@ class _AddProductPageState extends State<AddProductPage> {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
-                          color: Colors.white,
+                          color: Colors.grey
                         ),
                       ),
                       errorBorder: OutlineInputBorder(
@@ -97,7 +97,7 @@ class _AddProductPageState extends State<AddProductPage> {
                   ),
                   TextFormField(
                     controller: _price,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       label: Text(
                         'Price',
@@ -110,7 +110,7 @@ class _AddProductPageState extends State<AddProductPage> {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                       errorBorder: OutlineInputBorder(
@@ -126,7 +126,7 @@ class _AddProductPageState extends State<AddProductPage> {
                   ),
                   TextFormField(
                     controller: _type,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.black ),
                     decoration: InputDecoration(
                       label: Text(
                         'Product Type',
@@ -139,7 +139,7 @@ class _AddProductPageState extends State<AddProductPage> {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
-                          color: Colors.white,
+                          color: Colors.black
                         ),
                       ),
                       errorBorder: OutlineInputBorder(

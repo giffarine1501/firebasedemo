@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebasedemo/pages/addproducts.dart';
+import 'package:firebasedemo/pages/editproduct.dart';
 import 'package:flutter/material.dart';
 class ShowProductPage extends StatefulWidget {
   const ShowProductPage({Key? key}) : super(key: key);
@@ -12,9 +13,9 @@ class _ShowProductPageState extends State<ShowProductPage> {
   CollectionReference products =
       FirebaseFirestore.instance.collection('Products');
 
-  Future<void> deleteProduct() {
+  Future<void> deleteProduct({required String id}) {
     return products
-        .doc()
+        .doc(id)
         .delete()
         .then((value) => print("Deleted data Successfully"))
         .catchError((error) => print("Failed to delete user: $error"));
@@ -74,7 +75,14 @@ class _ShowProductPageState extends State<ShowProductPage> {
                 Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
                 return Card(
                   child: ListTile(
-                    onTap: () {},
+                    onTap: () {
+                     Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EditProductPage(id: doc.id),
+                        ),
+                      ).then((value) => setState(() {}));
+                    },
                     title: Text(
                       '${data['product_name']}',
                       style: const TextStyle(
@@ -95,8 +103,8 @@ class _ShowProductPageState extends State<ShowProductPage> {
                                 child: const Text('ยกเลิก')),
                             TextButton(
                                 onPressed: () {
-                                  deleteProduct()
-                                      .then((value) => setState(() {}));
+                                  deleteProduct(id: doc.id)
+                                      .then((value) => Navigator.pop(context));
                                 },
                                 child: const Text(
                                   'ยืนยัน',
